@@ -1,0 +1,25 @@
+<html>
+<head>
+
+  <script type="text/javascript">
+    
+    var doc = '<?xml version"1.0"?><root_element><sub_element some_attr="and some value">and some text</sub_element></root_element>';
+
+    var worker = new Worker('worker.js');
+    console.log( 'sending '+doc+' to worker' );
+    
+    worker.onmessage = function (event) {
+    console.log(event);
+    }
+    worker.postMessage( doc );
+
+    
+  </script>
+  
+</head>
+<body>
+  
+
+</body>
+  
+</html>
